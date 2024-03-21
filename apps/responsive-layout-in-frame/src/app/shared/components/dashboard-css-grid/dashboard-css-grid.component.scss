@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.machine-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: var(--wm-gutter-x);
+  row-gap: 1.5rem;
+}
+
+responsive-layout-in-frame-machine-card {
+  grid-area: 'machine-card';
+}
+
+responsive-layout-in-frame-assembly-line-css-grid {
+  grid-area: 'assembly-line';
+}

@@ -1,0 +1,63 @@
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  fhd: 1900px,
+  4k: 4000px,
+  8k: 7600px
+);
+
+:root {
+  --wm-gutter-x: 1.5rem;
+}
+
+@mixin create-grid-columns($breakpoint-name, $columns, $breakpoint) {
+  @for $i from 1 through $columns {
+    @container (min-width: #{$breakpoint}) {
+      .cq-col-#{$breakpoint-name}-#{$i} {
+        flex: 0 0 auto;
+        width: percentage($i / $columns);
+      }
+    }
+  }
+}
+
+@mixin apply-grid-columns($breakpoints) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include create-grid-columns($breakpoint-name, 120, $breakpoint-value);
+  }
+}
+
+@include apply-grid-columns($grid-breakpoints);
+
+.cq-container-fluid {
+  width: 100%;
+  padding-right: calc(var(--wm-gutter-x) * 0.5);
+  padding-left: calc(var(--wm-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cq-row {
+  container-type: inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(-0.5 * var(--wm-gutter-x));
+  margin-left: calc(-0.5 * var(--wm-gutter-x));
+
+  > .cq-col,
+  > [class*='cq-col-'] {
+    padding-right: calc(var(--wm-gutter-x) / 2);
+    padding-left: calc(var(--wm-gutter-x) / 2);
+  }
+}
+
+// default behaviour if no breakpoint is hit
+@container (max-width: #{map-get($grid-breakpoints,'sm')}) {
+  [class^='cq-col'],
+  [class*=' cq-col'] {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "responsive-layout-in-frame-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/responsive-layout-in-frame-e2e/src",
+  "targets": {},
+  "tags": [],
+  "implicitDependencies": ["responsive-layout-in-frame"]
+}

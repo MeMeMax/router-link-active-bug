@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.main {
+  display: flex;
+  height: calc(100vh - 115px);
+}
+
+.header-placeholder,
+.sidenav-placeholder {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b8b8b;
+}
+
+.header-placeholder {
+  height: 50px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.sidenav-placeholder {
+  width: 300px;
+  flex-shrink: 0;
+  border-right: 1px solid #f2f2f2;
+}
+
+.title-row {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.content-container {
+  overflow: auto;
+  width: 100%;
+  min-width: 386px;
+  padding: 32px;
+  background-color: #f2f2f2;
+  position: relative;
+}

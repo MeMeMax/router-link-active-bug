@@ -1,0 +1,78 @@
+{
+  "name": "responsive-layout-in-frame",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "responsive-layout-in-frame",
+  "sourceRoot": "apps/responsive-layout-in-frame/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/responsive-layout-in-frame",
+        "index": "apps/responsive-layout-in-frame/src/index.html",
+        "main": "apps/responsive-layout-in-frame/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/responsive-layout-in-frame/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/responsive-layout-in-frame/src/favicon.ico", "apps/responsive-layout-in-frame/src/assets"],
+        "styles": ["apps/responsive-layout-in-frame/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/responsive-layout-in-frame/src/assets/scss"]
+        },
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "responsive-layout-in-frame:build:production"
+        },
+        "development": {
+          "buildTarget": "responsive-layout-in-frame:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "responsive-layout-in-frame:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "responsive-layout-in-frame:build"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand border-bottom bg-body-tertiary">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <a class="navbar-brand" routerLink="/">Responsiveness in a frame</a>
+      <li class="nav-item">
+        <a class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/with-frame/container-queries/dashboard">
+          With Frame Container Queries
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/without-frame/container-queries/dashboard">
+          Without Frame Container Queries
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/with-frame/css-grid/dashboard">
+          With Frame CSS Grid
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/without-frame/css-grid/dashboard">
+          Without Frame CSS Grid
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
